@@ -47,14 +47,15 @@ function shiftLeft() {
 }
 
 function shiftUp() {
-  for (let y = 1; y < 4; y++) {
-    let numberOfPositionsAbove = y;
-    let z = numberOfPositionsAbove;
-    for (let x = 0; x < 4; x++) {
+  for (let y = 0; y < 4; y++) {
+    for (let x = 1; x < 4; x++) {
+      //Iterator for positions to the left
+      let numberOfPositionsLeft = x;
+      let z = numberOfPositionsLeft;
       while (z > 0) {
-        if (field[y - z][x].val == 0 && field[y][x] != 0) {
-          field[y - z][x].val = field[y][x].val;
-          field[y][x].val = 0;
+        if (field[x - z][y].val == 0 && field[x][y] != 0) {
+          field[x-z][y].val = field[x][y].val;
+          field[x][y].val = 0;
         }
         z--;
       }
@@ -83,18 +84,6 @@ function shiftDown() {
     }
   }
 }
-
-
-// function shiftDown() {
-//   for (let y = 0; y < 3; y++) {
-//     for (let x = 0; x < 4; x++) {
-//       if (field[y + 1][x].val == 0 && field[y][x] != 0) {
-//         field[y + 1][x].val = field[y][x].val;
-//         field[y][x].val = 0;
-//       }
-//     }
-//   }
-// }
 
 
 
