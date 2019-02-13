@@ -62,7 +62,7 @@ function shiftUp() {
     }
   }
 }
-
+ 
 function shiftRight() {
   for (let y = 0; y < 4; y++) {
     for (let x = 0; x < 3; x++) {
