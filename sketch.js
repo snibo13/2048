@@ -48,10 +48,15 @@ function shiftLeft() {
 
 function shiftUp() {
   for (let y = 1; y < 4; y++) {
+    let numberOfPositionsAbove = y;
+    let z = numberOfPositionsAbove;
     for (let x = 0; x < 4; x++) {
-      if (field[y-1][x].val == 0 && field[y][x] != 0) {
-        field[y-1][x].val = field[y][x].val;
-        field[y][x].val = 0;
+      while (z > 0) {
+        if (field[y - z][x].val == 0 && field[y][x] != 0) {
+          field[y - z][x].val = field[y][x].val;
+          field[y][x].val = 0;
+        }
+        z--;
       }
     }
   }
@@ -88,6 +93,7 @@ function keyPressed() {
     shiftUp();
   if (keyCode == DOWN_ARROW)
     shiftDown();
+  // newPiece();
 }
 
 function start() {
