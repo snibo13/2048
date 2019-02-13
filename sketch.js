@@ -27,13 +27,16 @@ function draw() {
 function shiftLeft() {
   for (let y = 0; y < 4; y++) {
     for (let x = 1; x < 4; x++) {
-      if (field[y][x-1].val == 0 && field[y][x] != 0) {
-        field[y][x-1].val = field[y][x].val;
-        field[y][x].val = 0;
-        // if (field[y][x-1].val == 0 && field[y][x] != 0) {     Single Shift
-        //   field[y][x-1].val = field[y][x].val;
-        //   field[y][x].val = 0;
-      }
+      //Iterator for positions to the left
+      let numberOfPositionsLeft = x;
+      let z = numberOfPositionsLeft;
+      while (z > 0) {
+        if (field[y][x-z].val == 0 && field[y][x] != 0) {
+          field[y][x-z].val = field[y][x].val;
+          field[y][x].val = 0;
+        }
+        z--;
+    }
     }
   }
 }
@@ -57,7 +60,6 @@ function start() {
     posYOne = Math.floor(Math.random() * 4); //Y Position of first spawned piece
     posYTwo = Math.floor(Math.random() * 4); //Y Position of second spawned piece
   }
-  console.log(posXOne, posYOne, posXTwo, posYTwo);
   field[posYOne][posXOne] = new Box(2);
   field[posYTwo][posXTwo] = new Box(2);
 
