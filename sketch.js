@@ -48,7 +48,17 @@ function shiftRight() {
         field[y][x+1].val = field[y][x].val;
         field[y][x].val = 0;
       }
+    }
+  }
+}
 
+function shiftDown() {
+  for (let y = 0; y < 3; y++) {
+    for (let x = 0; x < 4; x++) {
+      if (field[y+1][x].val == 0 && field[y][x] != 0) {
+        field[y+1][x].val = field[y][x].val;
+        field[y][x].val = 0;
+      }
     }
   }
 }
