@@ -74,15 +74,29 @@ function shiftRight() {
 }
 
 function shiftDown() {
-  for (let y = 0; y < 3; y++) {
-    for (let x = 0; x < 4; x++) {
-      if (field[y + 1][x].val == 0 && field[y][x] != 0) {
-        field[y + 1][x].val = field[y][x].val;
-        field[y][x].val = 0;
+  for (let y = 0; y < 4; y++) {
+    for (let x = 0; x < 3; x++) {
+      if (field[x+1][y].val == 0 && field[x][y] != 0) {
+        field[x+1][y].val = field[x][y].val;
+        field[x][y].val = 0;
       }
     }
   }
 }
+
+
+// function shiftDown() {
+//   for (let y = 0; y < 3; y++) {
+//     for (let x = 0; x < 4; x++) {
+//       if (field[y + 1][x].val == 0 && field[y][x] != 0) {
+//         field[y + 1][x].val = field[y][x].val;
+//         field[y][x].val = 0;
+//       }
+//     }
+//   }
+// }
+
+
 
 function keyPressed() {
   if (keyCode == LEFT_ARROW)
