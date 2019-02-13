@@ -41,6 +41,23 @@ function shiftLeft() {
   }
 }
 
+function shiftRight() {
+  for (let y = 0; y < 4; y++) {
+    for (let x = 2; x > 0; x--) {
+      //Iterator for positions to the Right
+      let numberOfPositionsRight = 3 - x;
+      let z = numberOfPositionsRight;
+      while (z > 0) {
+        if (field[y][x+z].val == 0 && field[y][x] != 0) {
+          field[y][x+z].val = field[y][x].val;
+          field[y][x].val = 0;
+        }
+        z--;
+    }
+    }
+  }
+}
+
 function keyPressed() {
   if (keyCode == LEFT_ARROW)
     shiftLeft();
